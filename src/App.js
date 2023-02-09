@@ -1,25 +1,49 @@
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
+
+  const users = [
+    {
+      name: "shersha",
+      pic: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSONTl_uAlP7naEiQxC30UnvvJGZSTcXZKAovN1gyI&s"
+    },
+    {
+      name: "vijay",
+      pic: "https://t4.ftcdn.net/jpg/03/64/21/11/360_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg"
+    },
+    {
+      name: "aijth",
+      pic: "https://thumbs.dreamstime.com/z/skilled-young-professional-looking-camera-posing-office-team-colleagues-background-successful-startup-founder-corporate-116972904.jpg"
+    },
+    {
+      name:"surya",
+      pic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-JXTGHFY17JKveGhEsuP2rz0qxFMoKb6eHg&usqp=CAU"
+    }
+  ]
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      {/* <User name="Shersha" pic="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSONTl_uAlP7naEiQxC30UnvvJGZSTcXZKAovN1gyI&s" />
+      <User name="Vijay" pic="https://t4.ftcdn.net/jpg/03/64/21/11/360_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg" />
+      <User name="Aijth" pic="https://thumbs.dreamstime.com/z/skilled-young-professional-looking-camera-posing-office-team-colleagues-background-successful-startup-founder-corporate-116972904.jpg" /> */}
+
+      {users.map((usr) => (
+        <User name={usr.name} pic={usr.pic} />
+      ))}
     </div>
   );
+}
+
+//function User({name,pic}) => object destructuring
+
+function User(props) {
+  const { name, pic } = props;
+  return (
+    <section>
+      <img className='User-profile' src={pic} alt={name} />
+      <h1 className='User-name'> Hello, <span className='User-change'>{name} 💕💕</span> </h1>
+    </section>
+  )
 }
 
 export default App;
