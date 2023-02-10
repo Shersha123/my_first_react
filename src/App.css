@@ -1,23 +1,37 @@
-.App {
-  text-align: center;
+.movie-poster {
+  height: 640px;
+  width: 100%;
+  /* zoom  in */
+  object-fit: cover;
 }
 
-.User-name{
-  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-   color: aqua;
-    font-weight: normal;
+.movie-name {
+  font-size: 24px;
+  margin: 0;
 }
-.User-profile{
-  height: 200px;
-  width: 200px;
-  border-radius: 200px;
-  object-fit: cover;
- 
+
+.movie-specs {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-.User-change{
-  font-weight: bold;
-  color: brown;
-  font-style: italic;
- 
- 
+
+.movie-container {
+  background-color: rgb(233, 231, 227);
+  width: 340px;
+}
+
+/* 1.RAM */
+.movie-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 1rem;
+  justify-items: center;
+  /* display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-around; */
+}
+.movie-rating{
+  font-size: 20px;
 }
