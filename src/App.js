@@ -155,7 +155,7 @@ function Movie({ movie }) {
       <button onClick={() => setShow(!show)}>Toggle description</button>
       {/* conditional rendering */}
       {show ? <p className='movie-summary'>{movie.summary}</p> : null}
-      <Counter />
+      {/* <Counter /> */}
     </div>
   )
 }
