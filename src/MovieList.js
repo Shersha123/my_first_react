@@ -1,8 +1,9 @@
 import { Movie } from "./Movie";
-
+import { useState } from "react";
+import { AddMovie } from "./AddMovie";
 export function MovieList() {
 
-    const movieList = [{
+    const [movieList, setMovieList] = useState([{
         name: "Vikram",
         poster: "https://m.media-amazon.com/images/M/MV5BMmJhYTYxMGEtNjQ5NS00MWZiLWEwN2ItYjJmMWE2YTU1YWYxXkEyXkFqcGdeQXVyMTEzNzg0Mjkx._V1_.jpg",
         rating: 8.4,
@@ -57,14 +58,20 @@ export function MovieList() {
         summary: "Remy, a rat, aspires to become a renowned French chef. However, he fails to realise that people despise rodents and will never enjoy a meal cooked by him.",
     }
 
-    ];
-    return (
-        <div className='movie-list'>
-            {/*  {parents-> child (props)} */}
+    ]);
 
-            {movieList.map((mv, index) => (
-                <Movie key={index} movie={mv} />
-            ))}
+    return (
+        <div>
+            <AddMovie movieList={movieList} setMovieList={setMovieList} />
+            <div className='movie-list'>
+                {/*  {parents-> child (props)} */}
+
+                {movieList.map((mv, index) => (
+                    <Movie key={index} movie={mv} />
+                ))}
+            </div>
         </div>
     );
 }
+
+

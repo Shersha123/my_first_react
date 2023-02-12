@@ -4,6 +4,8 @@ import { User } from './User';
 
 import { MovieList } from './MovieList';
 import { AddColor } from './AddColor';
+import { useState } from 'react';
+import { Routes, Route, Link } from "react-router-dom";
 
 function App() {
 
@@ -37,9 +39,32 @@ function App() {
         <User name={usr.name} pic={usr.pic} />
       ))} */}
 
-      <MovieList />
-      <AddColor />
+       {/* <MovieList /> */}
+      {/* <AddColor />  */}
+      {/* <Add5 /> */}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        {/* <Route path="about" element={<About />} /> */}
+      </Routes>
     </div>
   );
 }
+function Home(){
+return(
+  <h1>Welcome to the movie component</h1>
+)
+}
+
+
+function Add5() {
+  let [num, setNum] = useState(0)
+  return (
+    <div>
+      <button onClick={()=>setNum(num+5)}>+5</button>
+      <p>{num}</p>
+    </div>
+
+  )
+}
+
 export default App;

@@ -35,3 +35,18 @@
 .movie-rating{
   font-size: 20px;
 }
+.movie-form{
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  max-width: 450px;
+  margin: 1rem auto;
+}
+
+/* body{
+font-family: Roboto;
+height: 100vh;
+display: grid;
+place-content: center;
+text-align: center;
+} */
