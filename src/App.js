@@ -6,44 +6,86 @@ import { MovieList } from './MovieList';
 import { AddColor } from './AddColor';
 import { useState } from 'react';
 import { Routes, Route, Link } from "react-router-dom";
+import { AddMovie } from './AddMovie';
 
 function App() {
 
-  const users = [
-    {
-      name: "shersha",
-      pic: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSONTl_uAlP7naEiQxC30UnvvJGZSTcXZKAovN1gyI&s"
-    },
-    {
-      name: "vijay",
-      pic: "https://t4.ftcdn.net/jpg/03/64/21/11/360_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg"
-    },
-    {
-      name: "aijth",
-      pic: "https://thumbs.dreamstime.com/z/skilled-young-professional-looking-camera-posing-office-team-colleagues-background-successful-startup-founder-corporate-116972904.jpg"
-    },
-    {
-      name: "surya",
-      pic: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-JXTGHFY17JKveGhEsuP2rz0qxFMoKb6eHg&usqp=CAU"
-    }
-  ]
+  const [movieList, setMovieList] = useState([{
+    name: "Vikram",
+    poster: "https://m.media-amazon.com/images/M/MV5BMmJhYTYxMGEtNjQ5NS00MWZiLWEwN2ItYjJmMWE2YTU1YWYxXkEyXkFqcGdeQXVyMTEzNzg0Mjkx._V1_.jpg",
+    rating: 8.4,
+    summary: "Members of a black ops team must track and eliminate a gang of masked murderers.",
+},
+{
+    name: "RRR",
+    poster: "https://englishtribuneimages.blob.core.windows.net/gallary-content/2021/6/Desk/2021_6$largeimg_977224513.JPG",
+    rating: 8.8,
+    summary: "RRR is an upcoming Indian Telugu-language period action drama film directed by S. S. Rajamouli, and produced by D. V. V. Danayya of DVV Entertainments.",
+},
+{
+    name: "Iron man 2",
+    poster: "https://m.media-amazon.com/images/M/MV5BMTM0MDgwNjMyMl5BMl5BanBnXkFtZTcwNTg3NzAzMw@@._V1_FMjpg_UX1000_.jpg",
+    rating: 7,
+    summary: "With the world now aware that he is Iron Man, billionaire inventor Tony Stark (Robert Downey Jr.) faces pressure from all sides to share his technology with the military. He is reluctant to divulge the secrets of his armored suit, fearing the information will fall into the wrong hands. With Pepper Potts (Gwyneth Paltrow) and Rhodes (Don Cheadle) by his side, Tony must forge new alliances and confront a powerful new enemy.",
+},
+{
+    name: "No Country for Old Men",
+    poster: "https://upload.wikimedia.org/wikipedia/en/8/8b/No_Country_for_Old_Men_poster.jpg",
+    rating: 8.1,
+    summary: "A hunter's life takes a drastic turn when he discovers two million dollars while strolling through the aftermath of a drug deal. He is then pursued by a psychopathic killer who wants the money.",
+},
+{
+    name: "Jai Bhim",
+    poster: "https://m.media-amazon.com/images/M/MV5BY2Y5ZWMwZDgtZDQxYy00Mjk0LThhY2YtMmU1MTRmMjVhMjRiXkEyXkFqcGdeQXVyMTI1NDEyNTM5._V1_FMjpg_UX1000_.jpg",
+    summary: "A tribal woman and a righteous lawyer battle in court to unravel the mystery around the disappearance of her husband, who was picked up the police on a false case",
+    rating: 8.8,
+},
+{
+    name: "The Avengers",
+    rating: 8,
+    summary: "Marvel's The Avengers (classified under the name Marvel Avengers\n Assemble in the United Kingdom and Ireland), or simply The Avengers, is\n a 2012 American superhero film based on the Marvel Comics superhero team\n of the same name.",
+    poster: "https://terrigen-cdn-dev.marvel.com/content/prod/1x/avengersendgame_lob_crd_05.jpg",
+},
+{
+    name: "Interstellar",
+    poster: "https://m.media-amazon.com/images/I/A1JVqNMI7UL._SL1500_.jpg",
+    rating: 8.6,
+    summary: "When Earth becomes uninhabitable in the future, a farmer and ex-NASA\n pilot, Joseph Cooper, is tasked to pilot a spacecraft, along with a team\n of researchers, to find a new planet for humans.",
+},
+{
+    name: "Baahubali",
+    poster: "https://flxt.tmsimg.com/assets/p11546593_p_v10_af.jpg",
+    rating: 8,
+    summary: "In the kingdom of Mahishmati, Shivudu falls in love with a young warrior woman. While trying to woo her, he learns about the conflict-ridden past of his family and his true legacy.",
+},
+{
+    name: "Ratatouille",
+    poster: "https://resizing.flixster.com/gL_JpWcD7sNHNYSwI1ff069Yyug=/ems.ZW1zLXByZC1hc3NldHMvbW92aWVzLzc4ZmJhZjZiLTEzNWMtNDIwOC1hYzU1LTgwZjE3ZjQzNTdiNy5qcGc=",
+    rating: 8,
+    summary: "Remy, a rat, aspires to become a renowned French chef. However, he fails to realise that people despise rodents and will never enjoy a meal cooked by him.",
+}
+
+]);
 
   return (
     <div className='App'>
-      {/* <User name="Shersha" pic="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSONTl_uAlP7naEiQxC30UnvvJGZSTcXZKAovN1gyI&s" />
-      <User name="Vijay" pic="https://t4.ftcdn.net/jpg/03/64/21/11/360_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg" />
-      <User name="Aijth" pic="https://thumbs.dreamstime.com/z/skilled-young-professional-looking-camera-posing-office-team-colleagues-background-successful-startup-founder-corporate-116972904.jpg" /> */}
-
-
-      {/* {users.map((usr) => (
-        <User name={usr.name} pic={usr.pic} />
-      ))} */}
 
        {/* <MovieList /> */}
       {/* <AddColor />  */}
       {/* <Add5 /> */}
+      <ul>
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/movies">Movies</Link></li>
+        <li><Link to="/movies/add">Add Movie</Link></li>
+        <li><Link to="/color-game">AddColor</Link></li>
+      </ul>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/movies" element={<MovieList movieList={movieList} />} />
+        <Route path="/color-game" element={<AddColor/>} />
+        <Route path="/movies/add" element={<AddMovie  movieList={movieList} setMovieList={setMovieList }/>} />
+        {/* /movies->movieList */}
+        {/* /coloe-game->AddColor */}
         {/* <Route path="about" element={<About />} /> */}
       </Routes>
     </div>
@@ -51,7 +93,7 @@ function App() {
 }
 function Home(){
 return(
-  <h1>Welcome to the movie component</h1>
+  <h1>Welcome to the movie component 💕</h1>
 )
 }
 
