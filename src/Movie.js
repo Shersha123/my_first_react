@@ -31,9 +31,7 @@ export function Movie({ movie, id }) {
                     >
                         <InfoIcon />
                     </IconButton>
-   
                 </h2>
-
                 <p style={styles} className='movie-rating'> ⭐{movie.rating}</p>
             </div>
 

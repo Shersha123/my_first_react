@@ -50,3 +50,8 @@ display: grid;
 place-content: center;
 text-align: center;
 } */
+
+.movie-detail-container{
+  max-width: 650px;
+  padding: 16px;
+}
