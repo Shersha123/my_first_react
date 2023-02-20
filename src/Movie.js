@@ -6,6 +6,9 @@ import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import InfoIcon from '@mui/icons-material/Info';
 import { useNavigate } from "react-router-dom";
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardActions from '@mui/material/CardActions';
 
 // object destructructuring 
 
@@ -19,8 +22,9 @@ export function Movie({ movie, id }) {
     const navigate = useNavigate();
 
     return (
-        <div className='movie-container'>
+        <Card className='movie-container'>
             <img src={movie.poster} alt={movie.name} className='movie-poster'></img>
+            <CardContent>
             <div className='movie-specs'>
                 <h2 className='movie-name'>{movie.name}
                     <IconButton color="primary" onClick={() => setShow(!show)} aria-label="toggle summary">
@@ -34,10 +38,12 @@ export function Movie({ movie, id }) {
                 </h2>
                 <p style={styles} className='movie-rating'> ⭐{movie.rating}</p>
             </div>
-
             {/* conditional rendering */}
             {show ? <p className='movie-summary'>{movie.summary}</p> : null}
+            </CardContent>
+            <CardActions>
             <Counter />
-        </div>
+            </CardActions>
+        </Card>
     );
 }
