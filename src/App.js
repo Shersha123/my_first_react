@@ -123,6 +123,9 @@ function App() {
     },
   })
 
+fetch("https://63f306d8864fb1d6000db605.mockapi.io/movies")
+.then((data)=>data.json())
+.then((movies)=>console.log(movies))
   return (
     <ThemeProvider theme={darkTheme}>
       <Paper style={{minHeight: "100vh", borderRadius:"0%"}}elevation={4} >
