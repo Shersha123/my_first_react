@@ -17,15 +17,16 @@ import Paper from '@mui/material/Paper';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import { MovieDetails } from './MovieDetails';
+import { BasicForm } from './BasicForm';
 
 
 function App() {
 
-  
+
 
   const [movieList, setMovieList] = useState();
   const navigate = useNavigate()
-  const [mode, setMode] = useState('light')
+  const [mode, setMode] = useState('dark')
   const darkTheme = createTheme({
     palette: {
       mode: mode,
@@ -48,6 +49,7 @@ function App() {
               <Button color="inherit" onClick={() => navigate("/movies/add")}>AddMovie</Button>
               <Button color="inherit" onClick={() => navigate("/color-game")}>AddColor</Button>
               <Button
+                sx={{ marginLeft: "auto" }}
                 startIcon={mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
                 color="inherit"
                 onClick={() => setMode(mode === "light" ? "dark" : "light")}
@@ -72,11 +74,8 @@ function App() {
             {/* /movies->movieList */}
             {/* /coloe-game->AddColor */}
             {/* variable (matches any movieid) id */}
-            <Route path="/movies/:id"
-              element=
-              {
-                <MovieDetails movieList={movieList}
-                />} />
+            <Route path="/movies/:id" element={<MovieDetails />} />
+            <Route path="/basic-form" element={<BasicForm />} />
           </Routes>
         </div>
       </Paper >
@@ -101,3 +100,4 @@ function Home() {
 // }
 
 export default App;
+

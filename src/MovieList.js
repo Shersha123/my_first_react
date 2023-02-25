@@ -1,10 +1,13 @@
 import { Movie } from "./Movie";
 import { useState, useEffect } from "react";
 import { AddMovie } from "./AddMovie";
+import IconButton from '@mui/material/IconButton';
+import Stack from '@mui/material/Stack';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 export function MovieList() {
     const [movieList, setMovieList] = useState([])
-    const getMovies =()=>{
+    const getMovies = () => {
         fetch("https://63f306d8864fb1d6000db605.mockapi.io/movies", {
             method: "GET",
         })
@@ -13,10 +16,10 @@ export function MovieList() {
     }
     useEffect(() => getMovies(), []);
 
-    const deleteMovie = (id) =>{
+    const deleteMovie = (id) => {
         fetch(`https://63f306d8864fb1d6000db605.mockapi.io/movies/${id}`, {
             method: "DELETE",
-        }) .then((data) => getMovies())
+        }).then((data) => getMovies())
     };
     return (
         <div>
@@ -27,7 +30,15 @@ export function MovieList() {
                         <Movie
                             movie={mv}
                             id={mv.id}
-                            deleteButton={<button onClick={() => deleteMovie(mv.id)}>Delete Me</button>} />
+                            deleteButton={
+                                <IconButton 
+                                sx={{marginLeft: "auto"}}
+                                onClick={() => deleteMovie(mv.id)} 
+                                aria-label="delete"
+                                 color="error">
+                                    <DeleteIcon />
+                                </IconButton>
+                            } />
                     </div>
                 ))}
             </div>
