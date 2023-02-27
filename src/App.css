@@ -59,4 +59,7 @@ text-align: center;
 .add-movie-form{
   display: flex;
   flex-direction: column;
+  gap: 0.8rem;
+  max-width: 450px;
+  margin: 1rem auto;
 }

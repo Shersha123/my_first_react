@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { ColorBox } from './ColorBox'
 
 export function AddColor() {
-    const [color, setColor] = useState("orange");
+    const [color, setColor] = useState("");
 
     const colorStyles = {
         backgroundColor: color
